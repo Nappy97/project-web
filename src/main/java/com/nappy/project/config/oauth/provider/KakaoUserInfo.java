@@ -1,5 +1,7 @@
 package com.nappy.project.config.oauth.provider;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import java.util.Map;
 
 public class KakaoUserInfo implements OAuth2UserInfo {
@@ -12,7 +14,7 @@ public class KakaoUserInfo implements OAuth2UserInfo {
 
     @Override
     public String getProviderId() {
-        return (String) attributes.get("id");
+        return (String) String.valueOf(attributes.get("id"));
     }
 
     @Override
@@ -22,11 +24,13 @@ public class KakaoUserInfo implements OAuth2UserInfo {
 
     @Override
     public String getEmail() {
-        return (String) attributes.get("email");
+        Map<String, Object> kakaoAccount = (Map<String, Object>) attributes.get("kakao_account");
+        return (String) kakaoAccount.get("email");
     }
 
     @Override
-    public String getName() {
-        return (String) attributes.get("name");
+    public String getNickname() {
+        Map<String, Object> properties = (Map<String, Object>) attributes.get("properties");
+        return (String) properties.get("nickname");
     }
 }

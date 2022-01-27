@@ -26,7 +26,8 @@ public class GoogleUserInfo implements OAuth2UserInfo {
     }
 
     @Override
-    public String getName() {
+    public String getNickname() {
         return (String) attributes.get("name");
     }
+
 }

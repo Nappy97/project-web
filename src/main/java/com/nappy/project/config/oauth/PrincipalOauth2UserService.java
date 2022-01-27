@@ -30,8 +30,6 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         OAuth2User oAuth2User = super.loadUser(userRequest);
-
-
         return processOAuth2User(userRequest, oAuth2User);
     }
 
@@ -60,7 +58,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
                     .username(oAuth2UserInfo.getProvider() + "_" + oAuth2UserInfo.getProviderId())
                     .password(UUID.randomUUID().toString())
                     .email(oAuth2UserInfo.getEmail())
-                    .nickname("소셜로그인")
+                    .nickname(oAuth2UserInfo.getNickname())
                     .role(Role.USER)
                     .provider(oAuth2UserInfo.getProvider())
                     .providerId(oAuth2UserInfo.getProviderId())

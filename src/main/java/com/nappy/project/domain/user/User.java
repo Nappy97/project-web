@@ -29,7 +29,7 @@ public class User extends BaseTimeEntity {
     private String email;
 
     @Column(nullable = false, length = 20)
-    private String nickname; //닉네임
+    private String nickname;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -40,6 +40,8 @@ public class User extends BaseTimeEntity {
 
     @Column
     private String providerId;
+
+
 
     /**
      * 비밀번호 암호화 메소드

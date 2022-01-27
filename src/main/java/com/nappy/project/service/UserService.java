@@ -36,4 +36,8 @@ public class UserService {
         principalDetail.setUser(userEntity); //시큐리티 세션 정보 변경
         return userEntity.getId();
     }
+
+    /**
+     *  닉네임 중복성 검사 로직
+     */
 }
